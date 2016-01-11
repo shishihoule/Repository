@@ -25,7 +25,7 @@
 请参考 [运行 Yunba Android Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Android.md) 一文中的该步骤的做法，获得一个 AppKey。
 
 ###2. 配置工程文件
-在 "WampServer" 解压后的 "...\wamp\bin\php" 路径下搜索 "php.init" 文件并打开该文件，确保 "extension=php_openssl.dll" 、"extension=php_curl.dll" 和 extension_dir = ".../ext/" 语句**取消注释**（删去代码语句前的"；"）。如下图：
+在 "WampServer" 解压后的 "...\wamp\bin\php" 路径下搜索 "php.init" 文件并打开该文件，确保 ```extension=php_openssl.dll``` 、```extension=php_curl.dll``` 和 ```extension_dir = ".../ext/"``` 语句**取消注释**（删去代码语句前的"；"）。如下图：
 <br><br>
 ![php_extention_php_openssl.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/php_extention_php_openssl.png)
 <br><br>
@@ -33,7 +33,7 @@
 <br><br>
 ![php_extention_dir.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/php_extention_dir.png)
 <br><br>
-在工程文件 **包含** "yunba.php" 文件。
+在工程文件**包含**"yunba.php" 文件：
 解压下载的 Zip 文件，在 "...\yunba-php-sdk-master\examples" 路径下的 "subscribe.php" 和 "publish.php" 文件的第三行添加 "yunba.php" 文件所在路径。如下图：
 <br><br>
 ![php_include_yunba.php.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/php_include_yunba.php.png)
@@ -42,7 +42,7 @@
 
 ###2. 运行 examples
 **订阅**<br>
-打开 "subscribe.php",必须修改 "appkey"，替换为自己的 AppKey。可定义 "topic"、"qos" 等参数，参数含义可参考 [yunba-knowledgeBase](https://github.com/yunba/kb) 和 [官网](http://yunba.io/developers/)。代码示例如下：<br>
+打开 "subscribe.php",必须修改 "appkey"，替换为自己的 AppKey。可定义 "topic"、"qos" 等参数，参数含义可参考 [yunba-knowledgeBase](https://github.com/yunba/kb) 和 [官网](http://yunba.io/developers/) 。代码示例如下：<br>
 ```
 //构造实例
 $yunba = new Yunba(array(
@@ -61,7 +61,11 @@ $yunba->subscribe(array(
 	echo "[YunBa]received topic1 " . var_export($data, true) . "\n";
 });
 ```
-在 CMD 下进入 "php.exe" 文件所在的路径（从 "WampServer" 下搜索），运行 "subscribe.php" 文件进行该话题的**订阅**，如下图：
+找到 "php.exe" 文件所在的路径（从 "WampServer" 下搜索），把这个路径添加到**环境变量**中，运行 "subscribe.php" 文件进行该话题的**订阅**，如下图：
+<br><br>
+![php_subscribe.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/php_subscribe_masked.png)
+<br><br>
+订阅成功如下图：
 <br><br>
 ![php_subscribe_success.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/php_subscribe_success.png)
 <br><br>
@@ -70,7 +74,7 @@ $yunba->subscribe(array(
 打开 "publish.php" 文件，替换 "appkey"，可定义 "topic"、"news"、"qos"、"msg" 参数。<br>
 重启 CMD，运行 "publish.php" 进行该话题下的**消息发布**，如下图：
 <br><br>
-![php_open_publish.php.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/php_open_publish.php.png)
+![php_publish.php.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/php_publish_masked.png)
 <br><br>
 消息成功发布如下图：
 <br><br>
